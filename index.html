@@ -11,10 +11,10 @@
     <!--outline:noneでボタンの枠を消す -->
  <input type="image" src="akamaru.jpg" id="osu" style="width:130px;height:130px; outline:none;  position: relative; left: -370px; top: -270px"/ onclick="ring();">
 
- <audio id="audio" preload="auto">
- 	<source src="reco.mp3" type="audio/mp3">
- 	<source src="reco.wav" type="audio/wav">
- </audio>
+<!-- 音声ファイルの読み込み -->
+<audio id="tts">
+  <source src= "reco.mp3" type="audio/mp3">
+</audio>
 
 
 
@@ -45,43 +45,15 @@
           ctx.fillText(n-1, 260, 580);
 
 
+
+
+
+          
+
+
         }
-
-
-        // 対象となるID名
-	       var id = 'audio' ;
-
-	        // 初回以外だったら音声ファイルを巻き戻す
-	         if( typeof( document.getElementById( id ).currentTime ) != 'undefined' )
-	          {
-		            document.getElementById( id ).currentTime = 0;
-	             }
-
-	// [ID:sound-file]の音声ファイルを再生[play()]する
-	document.getElementById( id ).play() ;
-
-
-        // [audio]には、<audio></audio>のエレメントが入っているとする
-
-        // ブラウザが[.mp3]に対応している場合は[.mp3]を読み込む
-        if(audio.canPlayType('audio/mp3'))
-        {
-	         audio.src='reco.mp3';
-           document.getElementById("audio").load();
-           document.getElementById("audio").play();
-         }
-
-         // ブラウザが[.wav]に対応している場合は[.wav]を読み込む
-         else if(audio.canPlayType('audio/wav'))
-         {
-	          audio.src='reco.wav';
-            document.getElementById("audio").load();
-            document.getElementById("audio").play();
-          }
-
-
-
-
+        document.getElementById("tts").load();
+        document.getElementById("tts").play();
     }
 
 
@@ -96,3 +68,4 @@
 
   </body>
 </html>
+
