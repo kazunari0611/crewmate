@@ -54,18 +54,20 @@
         if(audio.canPlayType('audio/mp3'))
         {
 	         audio.src='reco.mp3';
+           document.getElementById("audio").load();
+           document.getElementById("audio").play();
          }
 
          // ブラウザが[.wav]に対応している場合は[.wav]を読み込む
          else if(audio.canPlayType('audio/wav'))
          {
 	          audio.src='reco.wav';
+            document.getElementById("audio").load();
+            document.getElementById("audio").play();
           }
 
 
 
-          document.getElementById("audio").load();
-          document.getElementById("audio").play();
 
     }
 
