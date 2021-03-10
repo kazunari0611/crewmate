@@ -2,18 +2,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    
+
     <title></title>
   </head>
   <body>
     <canvas id="canvas" width="600" height="700"></canvas>
     <!-- ボタンの設置 -->
     <!--outline:noneでボタンの枠を消す -->
- <input type="image" src="akamaru.jpg" style="width:130px;height:130px; outline:none;  position: relative; left: -370px; top: -270px"/ onclick="ring();">
+ <input type="image" src="akamaru.jpg" id="osu"  style="width:130px;height:130px; outline:none;  position: relative; left: -370px; top: -270px"/ onclick="ring();">
 
 <!-- 音声ファイルの読み込み -->
-<audio autoplay id="tts">
-  <source src= "reco.mp3" type="audio/mp3">
+<audio id="tts">
+  <source src= "reco.mp3" type="audio/mp3" preload="auto">
 </audio>
 
 
@@ -45,10 +45,19 @@
           ctx.fillText(n-1, 260, 580);
 
 
-      document.getElementById("tts").load();
-      document.getElementById("tts").play();
+          let playbtn = document.getElementById('osu');
 
 
+          playbtn.addEventListener('click', function(){
+              document.getElementById("tts").load();
+              document.getElementById("tts").play();
+          }, false);
+
+
+/*
+          document.getElementById("tts").load();
+          document.getElementById("tts").play();
+*/
     }
 
 
